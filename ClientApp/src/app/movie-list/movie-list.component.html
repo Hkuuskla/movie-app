@@ -1,5 +1,10 @@
 <h1 id="tableLabel">Movies</h1>
 
+<div class="search">
+  <label for="search-box">Movie Search</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)"/>
+</div>
+
 <p>This component demonstrates fetching data from the server.</p>
 
 <p *ngIf="!(movies$ | async)"><em>Loading...</em></p>
@@ -14,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let movie of movies$ | async">
+    <tr *ngFor="let movie of movies$ | async" [class.selected]="movie === selectedMovie">
       <td>{{ movie.title }}</td>
       <td>{{ movie.category.name }}</td>
       <td>{{ movie.year }}</td>
@@ -22,3 +27,5 @@
     </tr>
   </tbody>
 </table>
+
+<app-movie-detail [movie]="selectedMovie"></app-movie-detail>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {Movie} from "../models/movie";
 
 
@@ -14,24 +14,27 @@ export class MovieService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
-  constructor(
-    private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getMovies() {
-    return this.http.get<Movie[]>(this.moviesUrl);
+  getMovies(query?: string) {
+    let url;
+    if (query) {
+      url = `${this.moviesUrl}?query=${query}`;
+    } else {
+      url = this.moviesUrl;
+    }
+
+    return this.http.get<Movie[]>(url);
   }
-  /*
+
+  getMoviesByTitle(title: string) {
+    const url = `${this.moviesUrl}/title/?title=${title}`;
+    return this.http.get<Movie>(url);
+  }
+
+
   getMoviesById(id: number) {
     const url = `${this.moviesUrl}/?id=${id}`;
-    return this.http.get(url)
-      .pipe(
-        map(movies => movies[0]),
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} hero id=${id}`);
-        })
-      )
-    return this.http.get('api/movies/id')
-
-  }*/
+    return this.http.get<Movie>(url);
+  }
 }

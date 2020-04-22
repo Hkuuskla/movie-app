@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Mvc;
 using movie_app.Model;
 using movie_app.Repositories.Interfaces;
 using Newtonsoft.Json.Serialization;
@@ -9,9 +12,11 @@ namespace movie_app.Repositories
     public class MockMovieRepository : IMovieRepository
     {
         private readonly ICategoryRepository _categoryRepository = new MockCategoryRepository();
+        private readonly IEnumerable<Movie> _moviesList;
 
-        public IEnumerable<Movie> GetAllMovies =>
-            new List<Movie>
+        public MockMovieRepository()
+        {
+            _moviesList = new List<Movie>
             {
                 new Movie
                 {
@@ -59,24 +64,39 @@ namespace movie_app.Repositories
                     Rating = 8,
                     Category = _categoryRepository.GetAllCategories.ToList()[8]
                 },
-                
+
                 new Movie
                 {
-                MovieId = 5,
-                Title = "Romance",
-                Year = "1930",
-                Description =
-                    "Young Harry is in love and wants to marry an actress, much to the displeasure of his family.",
-                Rating = 6,
-                Category = _categoryRepository.GetAllCategories.ToList()[3]
-            }
-                
-                
+                    MovieId = 5,
+                    Title = "Romance",
+                    Year = "1930",
+                    Description =
+                        "Young Harry is in love and wants to marry an actress, much to the displeasure of his family.",
+                    Rating = 6,
+                    Category = _categoryRepository.GetAllCategories.ToList()[3]
+                }
             };
+        }
+
+        public IEnumerable<Movie> GetAllMovies(string query)
+        {
+            IEnumerable<Movie> AllMovies = _moviesList.Select(movie => new Movie
+            {
+                MovieId = movie.MovieId,
+                Title = movie.Title,
+                Year = movie.Year,
+                Description = null,
+                Rating = movie.Rating,
+                Category = movie.Category
+            });
+            
+            return query != null ? AllMovies.Where(movie => movie.Title.ToLower().Contains(query.ToLower())) : AllMovies;
+        }
+
 
         public Movie GetMovieById(int movieId)
         {
-            return GetAllMovies.FirstOrDefault(m => m.MovieId == movieId);
+            return _moviesList.FirstOrDefault(m => m.MovieId == movieId);
         }
     }
 }

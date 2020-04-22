@@ -5,7 +5,8 @@ namespace movie_app.Repositories.Interfaces
 {
     public interface IMovieRepository
     {
-        IEnumerable<Movie> GetAllMovies { get; }
+        IEnumerable<Movie> GetAllMovies(string query);
         Movie GetMovieById(int movieId);
+       
     }
 }
