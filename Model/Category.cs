@@ -8,6 +8,6 @@ namespace movie_app.Model
         public int CategoryId { get; set; }
         public string Name { get; set; }
 
-        public List<Movie>  Movies { get; set; }
+        //public List<Movie>  Movies { get; set; }
     }
 }

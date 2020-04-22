@@ -1,0 +1,24 @@
+<h1 id="tableLabel">Movies</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!(movies$ | async)"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies$ | async">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Year</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of movies$ | async">
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.category.name }}</td>
+      <td>{{ movie.year }}</td>
+      <td>{{ movie.rating }}</td>
+    </tr>
+  </tbody>
+</table>
