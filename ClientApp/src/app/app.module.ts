@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {MovieService} from "./services/movie.service";
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
-import { MovieSearchComponent } from './movie-search/movie-search.component';
 import {MovieListComponent} from "./movie-list/movie-list.component";
 
 @NgModule({
@@ -14,7 +13,6 @@ import {MovieListComponent} from "./movie-list/movie-list.component";
     AppComponent,
     MovieListComponent,
     MovieDetailComponent,
-    MovieSearchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

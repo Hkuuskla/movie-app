@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from "../services/movie.service";
-import {Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Movie} from "../models/movie";
 import {debounceTime, distinctUntilChanged, switchMap, tap} from "rxjs/operators";
 
@@ -11,7 +11,7 @@ import {debounceTime, distinctUntilChanged, switchMap, tap} from "rxjs/operators
 
 export class MovieListComponent implements OnInit {
   selectedMovie: Movie;
-  private movies$ = new Subject<Movie[]>();
+  private movies$ = new BehaviorSubject<Movie[]>([]);
   private searchQuery = new Subject<string>();
 
   constructor(private movieService: MovieService) {
@@ -36,8 +36,9 @@ export class MovieListComponent implements OnInit {
       // switch to new search observable each time the term changes
       switchMap((query: string) => this.movieService.getMovies(query)),
 
-      tap((movieList) => this.movies$.next(movieList))
-    );
+    ).subscribe((movieList) => this.movies$.next(movieList));
+
+    this.searchQuery.next();
   }
 
 }

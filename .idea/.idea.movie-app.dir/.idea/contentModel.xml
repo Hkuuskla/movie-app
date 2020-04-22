@@ -166,7 +166,6 @@
               <e p="movie-list.component.html" t="Include" />
               <e p="movie-list.component.ts" t="Include" />
             </e>
-            <e p="movie-search" t="Include" />
             <e p="services" t="Include">
               <e p="movie.service.spec.ts" t="Include" />
               <e p="movie.service.ts" t="Include" />

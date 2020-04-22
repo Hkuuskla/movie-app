@@ -9,18 +9,18 @@
 
 <p *ngIf="!(movies$ | async)"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="movies$ | async">
+<table class='table table-striped table-hover' aria-labelledby="tableLabel" *ngIf="movies$ | async">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Year</th>
-      <th>Rating</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Year</th>
+      <th scope="col">Rating</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let movie of movies$ | async" [class.selected]="movie === selectedMovie">
-      <td>{{ movie.title }}</td>
+    <tr *ngFor="let movie of movies$ | async" (click)="onSelect(movie)">
+      <td scope="row">{{ movie.title }}</td>
       <td>{{ movie.category.name }}</td>
       <td>{{ movie.year }}</td>
       <td>{{ movie.rating }}</td>
