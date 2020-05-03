@@ -1,0 +1,6 @@
+<div *ngIf="movie$ | async">
+  <h2>{{(movie$ | async)?.title | uppercase}} Details</h2>
+  <div>
+    {{ (movie$ | async)?.description }}
+  </div>
+</div>
