@@ -1,0 +1,18 @@
+﻿.movies-container {
+  display: flex;
+}
+
+table {
+  margin-right: 32px;
+  background: lightgray;
+}
+
+
+table,
+app-movie-detail {
+  width: 50%;
+}
+
+nav {
+  margin-bottom: 10px;
+}

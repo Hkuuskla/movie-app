@@ -1,13 +1,9 @@
-<div class="card" *ngIf="movie$ | async">
-  <h2>{{(movie$ | async)?.title | uppercase}} Details</h2>
-  <div>
-    Year: {{ (movie$ | async)?.year}}
-  </div>
-  <div>
-    Rating: {{ (movie$ | async)?.rating}}
-  </div>
-  <div>
-    Description: {{ (movie$ | async)?.description }}
+<div class="card movie-details" *ngIf="movie$ | async">
+  <div class="card-body">
+    <h5 class="card-title">{{(movie$ | async)?.title | uppercase}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Year: {{ (movie$ | async)?.year}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted"> Rating: {{ (movie$ | async)?.rating}}</h6>
+    <p class="card-text">{{ (movie$ | async)?.description }}</p>
   </div>
 </div>
 

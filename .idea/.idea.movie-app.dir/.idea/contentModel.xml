@@ -168,6 +168,7 @@
               <e p="movie-detail.component.ts" t="Include" />
             </e>
             <e p="movie-list" t="Include">
+              <e p="movie-list.component.css" t="Include" />
               <e p="movie-list.component.html" t="Include" />
               <e p="movie-list.component.ts" t="Include" />
             </e>
@@ -213,6 +214,7 @@
           </e>
         </e>
       </e>
+      <e p="package-lock.json" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Pages" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
