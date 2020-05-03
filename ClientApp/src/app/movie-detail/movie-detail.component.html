@@ -1,6 +1,14 @@
-<div *ngIf="movie$ | async">
+<div class="card" *ngIf="movie$ | async">
   <h2>{{(movie$ | async)?.title | uppercase}} Details</h2>
   <div>
-    {{ (movie$ | async)?.description }}
+    Year: {{ (movie$ | async)?.year}}
+  </div>
+  <div>
+    Rating: {{ (movie$ | async)?.rating}}
+  </div>
+  <div>
+    Description: {{ (movie$ | async)?.description }}
   </div>
 </div>
+
+

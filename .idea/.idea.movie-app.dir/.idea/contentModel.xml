@@ -3,7 +3,7 @@
   <component name="ContentModelStore">
     <e p="C:\Users\Helin\.Rider2019.3\config\scratches" t="IncludeRecursive" />
     <e p="C:\Users\Helin\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Helin\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.01" t="ExcludeRecursive" />
+    <e p="C:\Users\Helin\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_.19.00" t="ExcludeRecursive" />
     <e p="C:\workfolder\movie-app" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
@@ -161,7 +161,12 @@
               <e p="category.ts" t="Include" />
               <e p="movie.ts" t="Include" />
             </e>
-            <e p="movie-detail" t="Include" />
+            <e p="movie-detail" t="Include">
+              <e p="movie-detail.component.css" t="Include" />
+              <e p="movie-detail.component.html" t="Include" />
+              <e p="movie-detail.component.spec.ts" t="Include" />
+              <e p="movie-detail.component.ts" t="Include" />
+            </e>
             <e p="movie-list" t="Include">
               <e p="movie-list.component.html" t="Include" />
               <e p="movie-list.component.ts" t="Include" />
