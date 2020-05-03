@@ -18,6 +18,7 @@ namespace movie_app.Controllers
             return Json(_movieService.GetMovieById(id));
         }
 
+        
 
         private readonly IMovieService _movieService;
 

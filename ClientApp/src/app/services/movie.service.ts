@@ -32,6 +32,10 @@ export class MovieService {
     return this.http.get<Movie>(url);
   }
 
+  getCategories(title:string){
+
+  }
+
 
   getMoviesById(id: number) {
     const url = `${this.moviesUrl}/${id}`;
