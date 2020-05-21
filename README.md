@@ -12,17 +12,10 @@
 
 - 3 days for programming 1 day for courses
 
-## What was hard and easy in development
-
-- ASP.NET Core MVC was easier for me than Angular, because I study ASP.NET development in University right now, but I haven't been 
-programming Angular for 2 year now and it has changed a little bit.
-- To me Angular is harder and showing data in the right place, but if I could recap Angular and learn a little bit then it is doable
-
 ## Development tools
 
 - Angular, because I have used Angular before
-- ASP.NET Core MVC, I study ASP.NET Core in University right now. In paper was written ASP.NET MVC, but because ASP.NET Core is newer
-and has some extras I used ASP.NET Core MVC, also I have done this before.
+- ASP.NET Core MVC, I study ASP.NET Core in University right now.
 
 ## Movie App Repositories
 
